@@ -1,0 +1,42 @@
+body{
+  background: #FFFF99;
+    font-family: Meiryo UI;
+    text-align: center;
+}
+
+
+h1 {
+	text-align:center;
+	font-size:45px;
+	color: #000000;
+	font-family:"Meiryo UI";
+
+}
+ul, ol {
+  background: #fff582;
+  border-radius :8px;/*角の丸み*/
+  box-shadow :0px 0px 5px silver;/*5px=影の広がり具合*/
+  padding: 0.5em 0.5em 0.5em 2em;
+}
+ul li, ol li {
+  text-align: center;
+  line-height: 1.5;
+  padding: 0.5em 0;
+  font-size:30;
+  font-family: Meiryo UI;
+}
+
+
+div{font-family: Meiryo UI;}
+a {
+	text-align:center;
+	font-size:27px;
+	color: #ffff00;
+	display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #ffffff;/*ボタン色*/
+    color: #000000;
+    border-bottom: solid 2px #c0c0c0;/*ボタン底影*/
+    border-right: solid 3px #c0c0c0;/*ボタン右影*/
+    border-radius: 3px;
