@@ -11,25 +11,12 @@
   <div><h1>アルコールチェック</h1></div>
   <ul>
   <li>生ビール・     450ml・  5%
-  <form oninput="total.value = 450 * Number(pieces.value);"
-  		oninput="alcohol.value = total * 0.05 / 0.8">
-	<input type="text" name="pieces" min="1" max="5000" list="numlist" 
-	size="10" placeholder="ダブルクリック">
-	<datalist id="numlist">
-	<option value="1"></option>
-	<option value="2"></option>
-	<option value="3"></option>
-	<option value="4"></option>
-	<option value="5"></option>
-	<option value="6"></option>
-	<option value="7"></option>
-	<option value="8"></option>
-	<option value="9"></option>
-	</datalist>
-杯 = <span>合計：<output name="total"> ml</output></span>
-	<span>純アルコール量：<output name="alcohol"> g</output></span>
+  <form method="get" action="result">
+		a:<input type="text" name="a" /><br />
+		<input type="submit">
 </form>
-  <li>生ビール大・ 700ml・  5%
+
+  <li>生ビール大・ 750ml・  5%
   <form oninput="total.value = 750 * Number(pieces.value);">
 	
 	<input type="text" name="pieces" min="1" max="5000" list="numlist" 
@@ -121,7 +108,7 @@
 </form></li>
 </ul>
 
-  <div><a href = "result.html" >完了</a></div><br><br>
+  <div><a href = "./result" >完了</a></div><br><br>
   
 </body>
 </html>
