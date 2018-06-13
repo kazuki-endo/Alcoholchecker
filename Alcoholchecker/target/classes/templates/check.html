@@ -12,103 +12,26 @@
   <ul>
   <li>生ビール・     450ml・  5%
   <form method="get" action="result">
-		a:<input type="text" name="a" /><br />
-		<input type="submit">
-</form>
-
+		<input type="text" name="a" />杯<br />
+		
   <li>生ビール大・ 750ml・  5%
-  <form oninput="total.value = 750 * Number(pieces.value);">
-	
-	<input type="text" name="pieces" min="1" max="5000" list="numlist" 
-	size="10" placeholder="ダブルクリック">
-	<datalist id="numlist">
-	<option value="1"></option>
-	<option value="2"></option>
-	<option value="3"></option>
-	<option value="4"></option>
-	<option value="5"></option>
-	<option value="6"></option>
-	<option value="7"></option>
-	<option value="8"></option>
-	<option value="9"></option>
-	</datalist>
-杯 = <span>合計：<output name="total"> ml</output></span>
-</form></li>
+		<br><input type="text" name="b" />杯<br />
+		
   <li>ハイボール・  450ml・  7%
-  <form oninput="total.value = 450 * Number(pieces.value);">
+  		<br><input type="text" name="c" />杯<br />
 	
-	<input type="text" name="pieces" min="1" max="5000" list="numlist" 
-	size="10" placeholder="ダブルクリック">
-	<datalist id="numlist">
-	<option value="1"></option>
-	<option value="2"></option>
-	<option value="3"></option>
-	<option value="4"></option>
-	<option value="5"></option>
-	<option value="6"></option>
-	<option value="7"></option>
-	<option value="8"></option>
-	<option value="9"></option>
-	</datalist>
-杯 = <span>合計：<output name="total"> ml</output></span>
-</form></li>
   <li>ワイン・  125ml・  10%
-  	<form oninput="total.value = 125 * Number(pieces.value);">
-	
-	<input type="text" name="pieces" min="1" max="5000" list="numlist" 
-	size="10" placeholder="ダブルクリック">
-	<datalist id="numlist">
-	<option value="1"></option>
-	<option value="2"></option>
-	<option value="3"></option>
-	<option value="4"></option>
-	<option value="5"></option>
-	<option value="6"></option>
-	<option value="7"></option>
-	<option value="8"></option>
-	<option value="9"></option>
-	</datalist>
-杯 = <span>合計：<output name="total"> ml</output></span>
-</form></li>
+		<br><input type="text" name="d" />杯<br />
+
   <li>日本酒・       180ml・  15%
-  	<form oninput="total.value = 180 * Number(pieces.value);">
-	
-	<input type="text" name="pieces" min="1" max="5000" list="numlist" 
-	size="10" placeholder="ダブルクリック">
-	<datalist id="numlist">
-	<option value="1"></option>
-	<option value="2"></option>
-	<option value="3"></option>
-	<option value="4"></option>
-	<option value="5"></option>
-	<option value="6"></option>
-	<option value="7"></option>
-	<option value="8"></option>
-	<option value="9"></option>
-	</datalist>
-杯 = <span>合計：<output name="total"> ml</output></span>
-</form></li>
+		<br><input type="text" name="e" />杯<br />
+		
   <li>焼酎・           100ml・  25%
-  	<form oninput="total.value = 100 * Number(pieces.value);">
-	
-	<input type="text" name="pieces" min="1" max="5000" list="numlist" 
-	size="10" placeholder="ダブルクリック">
-	<datalist id="numlist">
-	<option value="1"></option>
-	<option value="2"></option>
-	<option value="3"></option>
-	<option value="4"></option>
-	<option value="5"></option>
-	<option value="6"></option>
-	<option value="7"></option>
-	<option value="8"></option>
-	<option value="9"></option>
-	</datalist>
-杯 = <span>合計：<output name="total"> ml</output></span>
+  		<br><input type="text" name="f" />杯<br />
+		<a><input type="submit" value="完了"/></a>
 </form></li>
 </ul>
 
-  <div><a href = "./result" >完了</a></div><br><br>
-  
+
 </body>
 </html>

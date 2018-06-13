@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -24,54 +26,75 @@ public String index(Model model) {
 	return "index";
 }
 
-@GetMapping("/check")
+/*@GetMapping("/check")
 public String check(Model model) {
 	return "check";
 
 }
-
-/*@RequestMapping("check")
- * public String check(){
- * return "check";
- * }
- * 
-
- @RequestMapping("result")
- public String result(ModelMap modelmap, @RequestParam("") int a)
-	int sum = a * 450;
-	modelMap.addAttribute("a",a);
-	modelMap.addAttribute("sum",sum);
-	return "result"
+*/
+@RequestMapping("check")
+	public String check(){
+	return "check";
 }
-	
-	
-	
-////////入力された値を取得///////////
-/*@RequestMapping(value = "/", method = RequestMethod.POST)
-//public ModelAndView send(
-	@RequestParam(value="check1")int check1,
-	@RequestParam(value="check2")int check2,
-	@RequestParam(value="check3")int check3,
-	@RequestParam(value="check4")int check4,
-	@RequestParam(value="check5")int check5,
-	@RequestParam(value="check6")int check6,
-	ModelAndView mav){
-	
-	入力された値 * DBから取得した値
-	
-//}
- * 
- * 
-  ////リダイレクト 
- * @Requestmapping("/other")
- * public String other(){
- * 	return "redirect:"
- */
-	
 
+////フォームに入力された値を受け取り計算してresultに返す(DB未使用)/////
+////純アルコール量を計算//////
+ @RequestMapping("result")
+ public String result(ModelMap modelmap, @RequestParam("a") int a, @RequestParam("b") int b, @RequestParam("c") int c,
+		 @RequestParam("d") int d, @RequestParam("e") int e, @RequestParam("f") int f) {
+	int sum = a * 450;
+	int sum1 = b * 750;
+	int sum2 = c * 450;
+	int sum3 = d * 125;
+	int sum4 = e * 180;
+	int sum5 = f * 100; 
+	int gou = sum + sum1 + sum2 + sum3 + sum4 + sum5;
+	
+	double Al = (sum * 0.05) * 0.8;
+	double Al1 = (sum1 * 0.05) * 0.8;
+	double Al2 = (sum2 * 0.05) * 0.8;
+	double Al3 = (sum3 * 0.05) * 0.8;
+	double Al4 = (sum4 * 0.05) * 0.8;
+	double Al5 = (sum5 * 0.05) * 0.8;
+	modelmap.addAttribute("a",a);
+	modelmap.addAttribute("sum",sum);
+	modelmap.addAttribute("b",b);
+	modelmap.addAttribute("sum1",sum1);
+	modelmap.addAttribute("c",c);
+	modelmap.addAttribute("sum2",sum2);
+	modelmap.addAttribute("d",d);
+	modelmap.addAttribute("sum3",sum3);
+	modelmap.addAttribute("e",e);
+	modelmap.addAttribute("sum4",sum4);
+	modelmap.addAttribute("f",f);
+	modelmap.addAttribute("sum5",sum5);
+	
+	/////飲んだ量の合計
+	modelmap.addAttribute("gou",gou);
+	
+	/////純アルコール量の計算
+	modelmap.addAttribute("Al",Al);
+	modelmap.addAttribute("Al1",Al1);
+	modelmap.addAttribute("Al2",Al2);
+	modelmap.addAttribute("Al3",Al3);
+	modelmap.addAttribute("Al4",Al4);
+	modelmap.addAttribute("Al5",Al5);
+	
+	/////純アルコール量の合計
+	double gouAl = Al + Al1 + Al2 + Al3 + Al4 + Al5;
+	modelmap.addAttribute("gouAl",gouAl);
+	
+	////アルコール分解までの時間
+	double times = gouAl / 5;
+	modelmap.addAttribute("times",times);
+	
+	return "result";
+ }
 
+ 
+ 
 //結果を表示する
-@GetMapping("/result")
+/*@GetMapping("/result")
 public String result() {
 	return "result";
 }
