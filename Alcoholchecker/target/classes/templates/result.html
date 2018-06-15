@@ -5,33 +5,36 @@
   <meta charset="UTF-8">
   
       <!-- CSS -->
-  <link rel="stylesheet" href="result.css">
+  <link rel="stylesheet" href="/css/result.css" th:href="@{/css/result.css}">
 </head>
 <body>
   <h1>あなたの状態です</h1>
   
-  <ul>
-  <li>飲んだ量<br></li>
-   <span hidden th:text="${sum}">sum</span>
+<div>  
+  <p>飲んだ量</p>
+   <!--<span hidden th:text="${sum}">sum</span>
    <span hidden th:text="${sum1}">sum1</span>
    <span hidden th:text="${sum2}">sum2</span>
    <span hidden th:text="${sum3}">sum3</span>
    <span hidden th:text="${sum4}">sum4</span>
-   <span hidden th:text="${sum5}">sum5</span>
-   <br><span th:text="${gou}"></span>ml<br/>
-  <li>純アルコール量<br></li>
+   <span hidden th:text="${sum5}">sum5</span>-->
+   <span th:text="${gou}"></span>ml<br><br>
+   <p>純アルコール量</p>
    <span hidden th:text="${Al}"></span>
    <span hidden th:text="${Al1}"></span>
    <span hidden th:text="${Al2}"></span>
    <span hidden th:text="${Al3}"></span>
    <span hidden th:text="${Al4}"></span>
    <span hidden th:text="${Al5}"></span>
-   <br><span th:text="${gouAl}"></span>g<br/>
-  <li>アルコール分解まで</li>
-   <span th:text="${times}"></span>時間
+   <span th:text="${gouAl}"></span>g<br><br>
+  <p>アルコール分解まで</p>
+   <span th:text="${times}"></span>時間<br>
+   　残り<span th:text="${times}"></span>時間は運転を控えてください！<br>
+   
+</div>
    
    
-  </ul>
-  <a href = "./index" >ＴＯＰに戻る</a><br><br>
+ 
+  <a href = "./index" >ＴＯＰに戻る</a><br>
 </body>
 </html>

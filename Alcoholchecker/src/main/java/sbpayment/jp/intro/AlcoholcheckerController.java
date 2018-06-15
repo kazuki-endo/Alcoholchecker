@@ -42,32 +42,26 @@ public String check(Model model) {
  @RequestMapping("result")
  public String result(Model model, ModelMap modelmap, @RequestParam("a") int a, @RequestParam("b") int b, @RequestParam("c") int c,
 		 @RequestParam("d") int d, @RequestParam("e") int e, @RequestParam("f") int f, @RequestParam("g") int g,
-		 @RequestParam("fr") int fr, @RequestParam("dosuu") double dosuu, @RequestParam("weight") int weight/*int amount*/) {
-	 //データベースから量を取得したい
-	 //jdbc.queryForList("SELECT * FROM DBAlc where amount = ?",amount).get(0).get("amount");
-	
-	
-	 //テスト表示
-	//System.out.println(amount);
+		 @RequestParam("fr") int fr, @RequestParam("dosuu") double dosuu, @RequestParam("weight") int weight) {
 	 
-	 
-	 
-	int sum = a * 450;
-	int sum1 = b * 750;
-	int sum2 = c * 450;
-	int sum3 = d * 125;
-	int sum4 = e * 180;
-	int sum5 = f * 100; 
+	 //データベースから値を取得して計算
+	int sum = a * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(0).get("amount");
+	int sum1 = b * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(1).get("amount");
+	int sum2 = c * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(2).get("amount");
+	int sum3 = d * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(3).get("amount");
+	int sum4 = e * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(4).get("amount");
+	int sum5 = f * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(5).get("amount"); 
 	int sum6 = g * fr;
 	int gou = sum + sum1 + sum2 + sum3 + sum4 + sum5 + sum6;
 	
-	double Al = (sum * 0.05) * 0.8;
-	double Al1 = (sum1 * 0.05) * 0.8;
-	double Al2 = (sum2 * 0.05) * 0.8;
-	double Al3 = (sum3 * 0.05) * 0.8;
-	double Al4 = (sum4 * 0.05) * 0.8;
-	double Al5 = (sum5 * 0.05) * 0.8;
+	double Al = (sum * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(0).get("alcohol") * 0.01) * 0.8;
+	double Al1 = (sum1 * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(1).get("alcohol") * 0.01) * 0.8;
+	double Al2 = (sum2 * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(2).get("alcohol") * 0.01) * 0.8; 
+	double Al3 = (sum3 * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(3).get("alcohol") * 0.01) * 0.8;
+	double Al4 = (sum4 * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(4).get("alcohol") * 0.01) * 0.8;
+	double Al5 = (sum5 * (int)jdbc.queryForList("SELECT * FROM DBAlc").get(5).get("alcohol") * 0.01) * 0.8;
 	double Al6 = (sum6 * dosuu * 0.01) * 0.8;
+	
 	modelmap.addAttribute("a",a);
 	modelmap.addAttribute("sum",sum);
 	modelmap.addAttribute("b",b);
@@ -85,6 +79,7 @@ public String check(Model model) {
 	modelmap.addAttribute("sum6",sum6);
 	modelmap.addAttribute("dosuu",dosuu);
 	modelmap.addAttribute("weight",weight);
+	
 	/////飲んだ量の合計
 	modelmap.addAttribute("gou",gou);
 	
@@ -103,7 +98,7 @@ public String check(Model model) {
 	
 	////アルコール分解までの時間
 	double times = gouAl / (weight * 0.1);
-	modelmap.addAttribute("times",times);
+	modelmap.addAttribute("times",String.format("%.1f", times));
 	
 	return "result";
  }

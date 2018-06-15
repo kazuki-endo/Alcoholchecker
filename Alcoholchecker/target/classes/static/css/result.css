@@ -12,17 +12,17 @@ h1 {
 }
 
 
-ul,ol{
+div {
   background: #fff582;
   border-radius :8px;/*Šp‚ÌŠÛ‚İ*/
   box-shadow :0px 0px 5px silver;/*5px=‰e‚ÌL‚ª‚è‹ï‡*/
-  padding: 0.5em 0.5em 0.5em 2em;
+  /*padding: 0.5em 0.5em 0.5em 2em;*/
   font-size:50;
 }
-ul li,ol li{
+div {
   text-align: center;
-  line-height: 1.5;
-  padding: 0.5em 0;
+  /*line-height: 1.5;*/
+  /*padding: 0.5em 0;*/
   font-size:26px;
   font-family: Meiryo UI;
 }
